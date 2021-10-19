@@ -8,7 +8,6 @@ import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { DefinePlugin } from 'webpack'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import CopyPlugin from "copy-webpack-plugin"
 
 const getPackageJSON = async () => {
   let packageJSON
@@ -153,31 +152,24 @@ const commonConfig = (env) => {
 }
 
 const productionConfig = (env, dataForDefinePlugin = {}) => {
-  const domain = env?.env?.domain || 'greehill'
-
   return {
     ...commonConfig(env),
     output: {
       path: path.resolve('dist'),
       filename: '[name].[contenthash].js',
       chunkFilename: '[name].[chunkhash].js',
-      publicPath: `https://${domain}/`
+      publicPath: env?.env?.root || '.'
     },
     mode: 'production',
     devtool: 'source-map',
     plugins: [
       new HtmlWebpackPlugin({
         template: 'public/index.html',
-        filename: 'index.php',
+        filename: 'index.html',
         minify: false,
         xhtml: true
       }),
       new DefinePlugin(dataForDefinePlugin),
-      new CopyPlugin({
-        patterns: [
-          {from: "public/images", to: "images"},
-        ],
-      }),
       new CleanWebpackPlugin({
         verbose: true,
         cleanOnceBeforeBuildPatterns: [path.resolve('dist/**')]
