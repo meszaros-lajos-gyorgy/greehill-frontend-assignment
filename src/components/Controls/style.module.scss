@@ -1,11 +1,14 @@
+@use '../../common/constants.scss';
+@use '../../common/colors.scss';
+
 .Controls {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #f3dc74;
-  height: 100px;
-  box-shadow: 0 3px 0 0 red inset;
+  background: colors.$accent;
+  height: constants.$controlsHeight;
+  box-shadow: 0 3px 0 0 colors.$primary inset;
   padding-top: 3px;
   box-sizing: border-box;
   display: flex;

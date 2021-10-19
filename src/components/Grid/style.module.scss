@@ -1,8 +1,12 @@
+@use '../../common/constants.scss';
+@use '../../common/colors.scss';
+
 .Grid {
   $gap: 1px;
 
-  background: #8ec3d8;
+  background: colors.$primary;
   display: inline-grid;
   gap: $gap $gap;
-  padding: $gap;
+  width: 100vw;
+  height: calc(100vh - constants.$controlsHeight);
 }
