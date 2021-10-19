@@ -1,0 +1,7 @@
+.Loading {
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+}

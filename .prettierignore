@@ -1,0 +1,4 @@
+app/Views/**/*.php
+webpack.config.babel.js
+src/migrate/css/theme.scss
+app/Helpers/EmailMessage.php
