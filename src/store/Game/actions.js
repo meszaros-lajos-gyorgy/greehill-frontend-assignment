@@ -1,5 +1,5 @@
 import { assocPath, repeat, evolve, not } from 'ramda'
-import { getGridSize } from '../../helpers/functions.js'
+import { getGridSize, getNextState } from '../../helpers/functions.js'
 
 export const setIsLoading = (state, { isLoading }) => {
   return { ...state, isLoading }
@@ -21,9 +21,9 @@ export const clearGrid = (state) => {
 export const randomize = (state, { width, height }) => {
   const grid = []
 
-  for (let y = 0; y < width; y++) {
+  for (let y = 0; y < height; y++) {
     const row = []
-    for (let x = 0; x < height; x++) {
+    for (let x = 0; x < width; x++) {
       row.push(Math.round(Math.random()))
     }
     grid.push(row)
@@ -39,4 +39,19 @@ export const togglePlayPause = (state) => {
     },
     state
   )
+}
+
+export const advanceLife = (state) => {
+  const { width, height } = getGridSize(state.grid)
+  const grid = []
+
+  for (let y = 0; y < height; y++) {
+    const row = []
+    for (let x = 0; x < width; x++) {
+      row.push(getNextState(x, y, state.grid))
+    }
+    grid.push(row)
+  }
+
+  return { ...state, grid }
 }

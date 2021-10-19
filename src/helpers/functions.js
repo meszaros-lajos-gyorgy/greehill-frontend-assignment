@@ -4,3 +4,9 @@ export const getGridSize = (grid) => {
     height: grid.length
   }
 }
+
+export const getNextState = (x, y, grid) => {
+  const currentState = grid[y][x]
+
+  return currentState === 1 ? 0 : 1
+}
