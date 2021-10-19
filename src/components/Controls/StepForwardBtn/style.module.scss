@@ -1,0 +1,6 @@
+@use '../../../common/colors.scss';
+@use '../style.module.scss' as Controls;
+
+.StepForwardBtn {
+  @include Controls.Button(40px);
+}
