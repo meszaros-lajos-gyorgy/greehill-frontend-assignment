@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getGridSize } from '../../helpers/functions.js'
-import Cell from '../Cell/Cell.jsx'
+import Cell from './Cell/Cell.jsx'
 import s from './style.module.scss'
 
 const Grid = () => {

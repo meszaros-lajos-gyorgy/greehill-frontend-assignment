@@ -1,5 +1,5 @@
 import React from 'react'
-import PlayPauseBtn from '../PlayPauseBtn/PlayPauseBtn.jsx'
+import PlayPauseBtn from './PlayPauseBtn/PlayPauseBtn.jsx'
 import s from './style.module.scss'
 
 const Controls = () => {
