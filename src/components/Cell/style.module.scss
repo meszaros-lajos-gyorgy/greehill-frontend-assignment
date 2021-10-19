@@ -4,6 +4,12 @@
   width: 100%;
   height: 100%;
   background: colors.$lightPrimary;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover {
+    background: gray;
+  }
 
   &.alive {
     background: colors.$darkPrimary;
