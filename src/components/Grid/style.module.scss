@@ -9,4 +9,14 @@
   gap: $gap $gap;
   width: 100vw;
   height: calc(100vh - constants.$controlsHeight);
+
+  &::before {
+    content: 'loading';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 50px);
+    width: 100px;
+    color: colors.$lightPrimary;
+  }
 }

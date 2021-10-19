@@ -11,6 +11,10 @@
   vertical-align: top;
   text-align: center;
   border: 1px solid colors.$lightPrimary;
+
+  &:hover {
+    background: colors.$semiDarkPrimary;
+  }
 }
 
 .PlayPauseBtn {

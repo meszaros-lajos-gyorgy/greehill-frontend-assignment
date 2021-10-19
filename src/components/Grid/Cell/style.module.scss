@@ -6,12 +6,18 @@
   background: colors.$lightPrimary;
   user-select: none;
   cursor: pointer;
+  box-shadow: 0 0 0 1px colors.$primary;
+  position: relative;
 
   &:hover {
-    background: gray;
+    background: colors.$semiLightPrimary;
   }
 
   &.alive {
     background: colors.$darkPrimary;
+
+    &:hover {
+      background: colors.$semiDarkPrimary;
+    }
   }
 }
