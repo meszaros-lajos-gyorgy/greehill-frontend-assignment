@@ -1,3 +1,9 @@
+import { times, repeat } from 'ramda'
+
+export const createMatrixOfZeros = (width, height) => {
+  return times(() => repeat(0, width), height)
+}
+
 export const getGridSize = (grid) => {
   return {
     width: grid.length ? grid[0].length : 0,

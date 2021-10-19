@@ -1,12 +1,12 @@
-import { assocPath, repeat, evolve, not } from 'ramda'
-import { getGridSize, getNextState } from '../../helpers/functions.js'
+import { assocPath, evolve, not } from 'ramda'
+import { createMatrixOfZeros, getGridSize, getNextState } from '../../helpers/functions.js'
 
 export const setIsLoading = (state, { isLoading }) => {
   return { ...state, isLoading }
 }
 
 export const generateGrid = (state, { width, height }) => {
-  return { ...state, grid: repeat(repeat(0, width), height) }
+  return { ...state, grid: createMatrixOfZeros(width, height) }
 }
 
 export const toggleCell = (state, { x, y }) => {
