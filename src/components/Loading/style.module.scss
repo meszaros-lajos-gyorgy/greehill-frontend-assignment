@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .Loading {
   $width: 200px;
   $height: 2em;
@@ -5,7 +7,7 @@
   display: block;
   position: fixed;
   top: -$height;
-  left: calc(50% - #{$width / 2});
+  left: calc(50% - math.div($width, 2));
   width: $width;
   text-align: center;
   background: #ffff69;

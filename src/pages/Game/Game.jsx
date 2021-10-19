@@ -25,10 +25,19 @@ const Game = () => {
     })
   }
 
+  const generateGrid = (width, height) => {
+    dispatch({
+      type: 'Game.generateGrid',
+      payload: {
+        width,
+        height
+      }
+    })
+  }
+
   useEffectOnce(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
+    generateGrid(5, 5)
+    setIsLoading(false)
   })
 
   return (

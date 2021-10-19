@@ -1,7 +1,5 @@
 import { useEffect } from 'react'
 
-const useEffectOnce = (fn) => {
+export const useEffectOnce = (fn) => {
   return useEffect(fn, [])
 }
-
-export { useEffectOnce }
