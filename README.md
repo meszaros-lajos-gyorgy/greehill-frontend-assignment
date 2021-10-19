@@ -15,6 +15,12 @@
 Ez a futtatáshoz szükséges összes fájlt a dist-be teszi, ami aztán mehet fel a root-ban megadott útvonal alá.
 Ha a `-- --env root=...` nincs megadva, akkor a fájlok relatív útvonallal lesznek bekötve.
 
+## Tesztelés
+
+`npm run test:unit` - lefuttatja a teszteket egyszer
+
+`npm run test:unit:watch` - futtatja a teszteket minden src és test mappán belüli módosításnál
+
 ## Game of Life definíciója
 
 - Any live cell with fewer than two live neighbours dies, as if by underpopulation.
