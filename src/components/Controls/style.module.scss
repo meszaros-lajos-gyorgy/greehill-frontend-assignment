@@ -8,6 +8,9 @@
   box-shadow: 0 3px 0 0 red inset;
   padding-top: 3px;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   button {
     cursor: pointer;
@@ -27,7 +30,11 @@
       font-size: 20px;
 
       svg {
-        margin-left: 7px;
+        display: block;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+        padding-left: 6px;
       }
     }
   }

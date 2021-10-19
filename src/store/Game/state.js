@@ -1,6 +1,6 @@
 export default async () => ({
-  isLoading: true,
   grid: [],
+  initialGrid: [],
   templates: {
     blinker: [
       [0, 0, 0],
