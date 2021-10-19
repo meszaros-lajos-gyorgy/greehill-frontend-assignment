@@ -1,0 +1,6 @@
+@use '../../../common/colors.scss';
+@use '../style.module.scss' as Controls;
+
+.RandomizeBtn {
+  @include Controls.Button(40px);
+}

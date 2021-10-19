@@ -18,7 +18,8 @@ export const clearGrid = (state) => {
   return generateGrid(state, getGridSize(state.grid))
 }
 
-export const randomize = (state, { width, height }) => {
+export const randomizeGrid = (state) => {
+  const { width, height } = getGridSize(state.grid)
   const grid = []
 
   for (let y = 0; y < height; y++) {
