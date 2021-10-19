@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Loading from '../../components/Loading/Loading.jsx'
 import { useEffectOnce } from '../../helpers/react.js'
 import Grid from '../../components/Grid/Grid.jsx'
+import Controls from '../../components/Controls/Controls.jsx'
 
 setConfig({
   reloadHooks: false
@@ -36,7 +37,7 @@ const Game = () => {
   }
 
   useEffectOnce(() => {
-    generateGrid(5, 5)
+    generateGrid(30, 30)
     setIsLoading(false)
   })
 
@@ -45,6 +46,7 @@ const Game = () => {
       <h1>Game of Life</h1>
       <Loading visible={isLoading} />
 
+      <Controls />
       <Grid />
     </>
   )

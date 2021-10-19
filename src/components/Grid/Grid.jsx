@@ -1,12 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { getSize } from '../../helpers/functions.js'
+import { getGridSize } from '../../helpers/functions.js'
 import Cell from '../Cell/Cell.jsx'
 import s from './style.module.scss'
 
 const Grid = () => {
   const grid = useSelector((state) => state.Game.grid)
-  const { width, height } = useSelector((state) => getSize(state.Game.grid))
+  const { width, height } = useSelector((state) => getGridSize(state.Game.grid))
 
   return (
     <div
