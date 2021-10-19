@@ -1,7 +1,21 @@
 .Loading {
-  display: none;
+  $width: 200px;
+  $height: 2em;
+
+  display: block;
+  position: fixed;
+  top: -$height;
+  left: calc(50% - #{$width / 2});
+  width: $width;
+  text-align: center;
+  background: #ffff69;
+  line-height: $height;
+  height: $height;
+  border-radius: 0 0 15px 15px;
+  user-select: none;
+  transition: top 1s;
 
   &.visible {
-    display: block;
+    top: 0;
   }
 }

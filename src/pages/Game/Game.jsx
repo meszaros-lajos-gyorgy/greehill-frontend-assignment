@@ -4,6 +4,7 @@ import { hot, setConfig } from 'react-hot-loader'
 import { useSelector, useDispatch } from 'react-redux'
 import Loading from '../../components/Loading/Loading.jsx'
 import { useEffectOnce } from '../../helpers/react.js'
+import Grid from '../../components/Grid/Grid.jsx'
 
 setConfig({
   reloadHooks: false
@@ -34,6 +35,8 @@ const Game = () => {
     <>
       <h1>Game of Life</h1>
       <Loading visible={isLoading} />
+
+      <Grid />
     </>
   )
 }

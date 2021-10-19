@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { getStore } from './store/store.js'
 import Game from './pages/Game/Game.jsx'
+import './reset.scss'
 
 const wrapper = document.getElementById('game')
 
