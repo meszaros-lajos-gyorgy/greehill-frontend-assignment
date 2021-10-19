@@ -6,6 +6,7 @@ import Loading from '../../components/Loading/Loading.jsx'
 import { useEffectOnce } from '../../helpers/react.js'
 import Grid from '../../components/Grid/Grid.jsx'
 import Controls from '../../components/Controls/Controls.jsx'
+import s from './style.module.scss'
 
 setConfig({
   reloadHooks: false
@@ -43,11 +44,11 @@ const Game = () => {
 
   return (
     <>
-      <h1>Game of Life</h1>
       <Loading visible={isLoading} />
-
-      <Controls />
-      <Grid />
+      <section className={s.Game}>
+        <Grid />
+        <Controls />
+      </section>
     </>
   )
 }

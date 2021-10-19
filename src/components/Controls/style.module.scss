@@ -1,3 +1,34 @@
 .Controls {
-  margin-bottom: 2em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f3dc74;
+  height: 100px;
+  box-shadow: 0 3px 0 0 red inset;
+  padding-top: 3px;
+  box-sizing: border-box;
+
+  button {
+    cursor: pointer;
+    border: 0;
+    background: white;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+
+    &.playPause {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 20px;
+
+      svg {
+        margin-left: 7px;
+      }
+    }
+  }
 }
