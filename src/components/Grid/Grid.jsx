@@ -15,7 +15,7 @@ const Grid = () => {
     >
       {grid.map((row, y) => {
         return row.map((cell, x) => {
-          return <Cell key={`cell-${x}-${y}`} isAlive={cell === 1} x={x} y={y} />
+          return <Cell key={`${x}:${y}`} isAlive={cell === 1} x={x} y={y} />
         })
       })}
     </div>

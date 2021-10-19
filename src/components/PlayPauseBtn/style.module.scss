@@ -1,0 +1,35 @@
+@use '../../common/colors.scss';
+
+@mixin controlsButton {
+  cursor: pointer;
+  background: colors.$darkPrimary;
+  color: colors.$lightPrimary;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  border: 1px solid colors.$lightPrimary;
+}
+
+.PlayPauseBtn {
+  @include controlsButton;
+
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+
+  svg {
+    display: block;
+  }
+
+  &.playing svg {
+    margin-left: 15px;
+  }
+
+  &.paused svg {
+    margin-left: 17px;
+  }
+}

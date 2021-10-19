@@ -1,14 +1,11 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import PlayPauseBtn from '../PlayPauseBtn/PlayPauseBtn.jsx'
 import s from './style.module.scss'
 
 const Controls = () => {
   return (
     <div className={s.Controls}>
-      <button title="Play / Pause" className={s.playPause}>
-        <FontAwesomeIcon icon={faPlay} />
-      </button>
+      <PlayPauseBtn />
       {/* step forward */}
       {/* slider: speed */}
       {/* reset */}

@@ -1,4 +1,4 @@
-import { assocPath, repeat, evolve } from 'ramda'
+import { assocPath, repeat, evolve, not } from 'ramda'
 import { getGridSize } from '../../helpers/functions.js'
 
 export const setIsLoading = (state, { isLoading }) => {
@@ -30,4 +30,13 @@ export const randomize = (state, { width, height }) => {
   }
 
   return { ...state, grid }
+}
+
+export const togglePlayPause = (state) => {
+  return evolve(
+    {
+      isPlaying: not
+    },
+    state
+  )
 }
