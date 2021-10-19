@@ -15,7 +15,6 @@
 
   button {
     cursor: pointer;
-    border: 0;
     background: colors.$darkPrimary;
     color: colors.$lightPrimary;
     border-radius: 50%;
@@ -24,6 +23,7 @@
     display: inline-block;
     vertical-align: top;
     text-align: center;
+    border: 1px solid colors.$lightPrimary;
 
     &.playPause {
       width: 50px;
@@ -36,7 +36,7 @@
         width: 100%;
         text-align: center;
         box-sizing: border-box;
-        padding-left: 6px;
+        padding-left: 5px;
       }
     }
   }
