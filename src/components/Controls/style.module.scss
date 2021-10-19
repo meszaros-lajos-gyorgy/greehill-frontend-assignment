@@ -1,5 +1,27 @@
+@use 'sass:math';
 @use '../../common/constants.scss';
 @use '../../common/colors.scss';
+
+@mixin Button($size) {
+  cursor: pointer;
+  background: colors.$darkPrimary;
+  color: colors.$lightPrimary;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  border: 1px solid colors.$lightPrimary;
+  width: $size;
+  height: $size;
+  line-height: $size;
+  font-size: math.div($size, 5) * 2;
+
+  &:hover {
+    background: colors.$semiDarkPrimary;
+  }
+}
 
 .Controls {
   position: fixed;
