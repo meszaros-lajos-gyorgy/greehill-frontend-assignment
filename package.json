@@ -9,7 +9,7 @@
     "lint:css": "stylelint src/**/*.scss",
     "lint:js": "eslint src/**/*.{js,jsx}",
     "lint:staged": "lint-staged",
-    "test:unit": "set FORCE_COLOR=true && mocha test/**/*.spec.js --timeout 5000",
+    "test:unit": "set FORCE_COLOR=true && mocha test/**/*.spec.js --require @babel/register --timeout 5000",
     "test:unit:watch": "nodemon --exec \"npm run test:unit\" --watch test --watch src"
   },
   "repository": {
