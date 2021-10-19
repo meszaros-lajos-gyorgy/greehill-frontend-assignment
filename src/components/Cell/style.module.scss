@@ -1,9 +1,11 @@
+@use '../../common/colors.scss';
+
 .Cell {
   width: 100%;
   height: 100%;
-  background: white;
+  background: colors.$lightPrimary;
 
   &.alive {
-    background: black;
+    background: colors.$darkPrimary;
   }
 }

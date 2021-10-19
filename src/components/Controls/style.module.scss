@@ -6,10 +6,8 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background: colors.$accent;
+  background: colors.$primary;
   height: constants.$controlsHeight;
-  box-shadow: 0 3px 0 0 colors.$primary inset;
-  padding-top: 3px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -18,7 +16,8 @@
   button {
     cursor: pointer;
     border: 0;
-    background: white;
+    background: colors.$darkPrimary;
+    color: colors.$lightPrimary;
     border-radius: 50%;
     padding: 0;
     margin: 0;
