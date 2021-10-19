@@ -1,0 +1,19 @@
+{
+  "name": "greehill-frontend-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meszaros-lajos-gyorgy/greehill-frontend-assignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meszaros-lajos-gyorgy/greehill-frontend-assignment/issues"
+  },
+  "homepage": "https://github.com/meszaros-lajos-gyorgy/greehill-frontend-assignment#readme"
+}
