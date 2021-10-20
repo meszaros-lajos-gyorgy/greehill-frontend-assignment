@@ -30,6 +30,13 @@ const Grid = () => {
     }
   }, [mousePos.x, mousePos.y])
 
+  useEffect(() => {
+    if (!isMouseDown) {
+      mousePos.x = null
+      mousePos.y = null
+    }
+  }, [isMouseDown])
+
   return (
     <div
       className={s.Grid}
@@ -46,7 +53,9 @@ const Grid = () => {
               isAlive={cell === 1}
               onMouseDown={() => {
                 setIsMouseDown(true)
-                setMousePos({ x, y })
+                setTimeout(() => {
+                  setMousePos({ x, y })
+                }, 10)
               }}
               onMouseUp={() => {
                 setIsMouseDown(false)

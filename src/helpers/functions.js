@@ -13,7 +13,7 @@ export const getGridSize = (grid) => {
 
 export const countNeighbours = (x, y, grid) => {
   const xs = [x - 1, x, x + 1]
-  const ys = [x - 1, y, y + 1]
+  const ys = [y - 1, y, y + 1]
 
   return compose(
     sum,
