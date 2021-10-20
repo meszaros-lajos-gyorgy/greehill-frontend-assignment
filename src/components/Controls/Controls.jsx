@@ -26,7 +26,15 @@ const Controls = () => {
       <PlayPauseBtn />
       {started && !isPlaying ? <StepForwardBtn /> : <FakeBtn />}
       <Spacer />
-      <Indicators />
+      {started ? (
+        <Indicators />
+      ) : (
+        <>
+          <FakeBtn />
+          <FakeBtn />
+          <FakeBtn />
+        </>
+      )}
     </div>
   )
 }
