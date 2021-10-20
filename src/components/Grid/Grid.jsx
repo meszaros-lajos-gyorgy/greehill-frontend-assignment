@@ -7,8 +7,8 @@ import s from './style.module.scss'
 const Grid = () => {
   const dispatch = useDispatch()
 
-  const grid = useSelector((state) => state.Game.grid)
-  const { width, height } = useSelector((state) => getGridSize(state.Game.grid))
+  const grid = useSelector((state) => (state.Game.started ? state.Game.grid : state.Game.initialGrid))
+  const { width, height } = getGridSize(grid)
 
   const [isMouseDown, setIsMouseDown] = useState(false)
   const [mousePos, setMousePos] = useState({ x: null, y: null })

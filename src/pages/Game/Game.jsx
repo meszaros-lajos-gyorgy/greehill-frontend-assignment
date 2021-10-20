@@ -27,7 +27,7 @@ const Game = () => {
   }
 
   useEffectOnce(() => {
-    generateGrid(40, 40)
+    generateGrid(30, 30)
   })
 
   return (

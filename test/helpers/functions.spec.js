@@ -1,7 +1,12 @@
 const assert = require('assert')
 const { describe, it } = require('mocha')
 const { isFunction } = require('ramda-adjunct')
-const { createMatrixOfZeros, getGridSize, countNeighbours, getNextState } = require('../../src/helpers/functions.js')
+const {
+  createMatrixOfZeros,
+  getGridSize,
+  countNeighbours,
+  getNextCellState
+} = require('../../src/helpers/functions.js')
 
 describe('createMatrixOfZeros', () => {
   it('létező függvény', () => {
@@ -70,9 +75,9 @@ describe('countNeighbours', () => {
   })
 })
 
-describe('getNextState', () => {
+describe('getNextCellState', () => {
   it('létező függvény', () => {
-    assert.ok(isFunction(getNextState))
+    assert.ok(isFunction(getNextCellState))
   })
   it('ha az adott 1-et tartalmazó cella körül kevesebb, mint 2 szomszéd van, akkor 0-t ad vissza', () => {
     const grid = [
@@ -80,7 +85,7 @@ describe('getNextState', () => {
       [0, 1, 0],
       [0, 0, 1]
     ]
-    assert.strictEqual(getNextState(1, 1, grid), 0)
+    assert.strictEqual(getNextCellState(1, 1, grid), 0)
   })
   it('ha az adott 1-et tartalmazó cella körül 2, vagy 3 szomszéd van, akkor 1-el tér vissza', () => {
     const grid = [
@@ -88,7 +93,7 @@ describe('getNextState', () => {
       [0, 1, 1],
       [0, 0, 1]
     ]
-    assert.strictEqual(getNextState(1, 1, grid), 1)
+    assert.strictEqual(getNextCellState(1, 1, grid), 1)
   })
   it('ha az adott 1-et tartalmazó cella körül több, mint 3 szomszéd van, akkor 0-val tér vissza', () => {
     const grid = [
@@ -96,7 +101,7 @@ describe('getNextState', () => {
       [0, 1, 1],
       [1, 1, 1]
     ]
-    assert.strictEqual(getNextState(1, 1, grid), 0)
+    assert.strictEqual(getNextCellState(1, 1, grid), 0)
   })
   it('ha az adott 0-t tartalmazó cella körül pontosan 3 szomszédvan, akkor 1-el tér vissza', () => {
     const gridA = [
@@ -104,20 +109,20 @@ describe('getNextState', () => {
       [0, 0, 1],
       [1, 0, 0]
     ]
-    assert.strictEqual(getNextState(1, 1, gridA), 1, 'gridA-nál 3 szomszéd van -> 1')
+    assert.strictEqual(getNextCellState(1, 1, gridA), 1, 'gridA-nál 3 szomszéd van -> 1')
 
     const gridB = [
       [0, 0, 0],
       [0, 0, 1],
       [1, 0, 0]
     ]
-    assert.strictEqual(getNextState(1, 1, gridB), 0, 'gridB-nél 2 szomszéd van -> 0')
+    assert.strictEqual(getNextCellState(1, 1, gridB), 0, 'gridB-nél 2 szomszéd van -> 0')
 
     const gridC = [
       [0, 1, 1],
       [0, 0, 1],
       [1, 0, 0]
     ]
-    assert.strictEqual(getNextState(1, 1, gridC), 0, 'gridC-nél 4 szomszéd van -> 0')
+    assert.strictEqual(getNextCellState(1, 1, gridC), 0, 'gridC-nél 4 szomszéd van -> 0')
   })
 })
