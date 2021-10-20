@@ -9,6 +9,7 @@ import RandomizeBtn from './RandomizeBtn/RandomizeBtn.jsx'
 import StepBackwardBtn from './StepBackwardBtn/StepBackwardBtn.jsx'
 import ResetBtn from './ResetBtn/ResetBtn.jsx'
 import s from './style.module.scss'
+import Indicators from './Indicators/Indicators.jsx'
 
 const Controls = () => {
   const isPlaying = useSelector((state) => state.Game.isPlaying)
@@ -19,13 +20,13 @@ const Controls = () => {
     <div className={s.Controls}>
       {started ? isPlaying ? <FakeBtn /> : <ResetBtn /> : <ClearBtn />}
       {started ? <FakeBtn /> : <RandomizeBtn />}
+      <FakeBtn />
       <Spacer />
       {started && !isPlaying && generation > 0 ? <StepBackwardBtn /> : <FakeBtn />}
       <PlayPauseBtn />
       {started && !isPlaying ? <StepForwardBtn /> : <FakeBtn />}
       <Spacer />
-      <FakeBtn />
-      <FakeBtn />
+      <Indicators />
     </div>
   )
 }
