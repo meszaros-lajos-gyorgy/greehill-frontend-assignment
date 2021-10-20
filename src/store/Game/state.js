@@ -4,7 +4,7 @@ export default async () => ({
   generation: 0,
   grid: [],
   initialGrid: [],
-
+  speedInMilliseconds: 300,
   templates: {
     blinker: [
       [0, 0, 0],

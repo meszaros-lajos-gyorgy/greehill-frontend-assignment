@@ -52,3 +52,7 @@ export const recedeLife = (state) => {
 export const resetGrid = (state) => {
   return { ...state, generation: 0, started: false }
 }
+
+export const setSpeed = (state, { speedInMilliseconds }) => {
+  return { ...state, speedInMilliseconds }
+}

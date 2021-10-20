@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { compose } from 'ramda'
 import { hot, setConfig } from 'react-hot-loader'
 import { useDispatch, useSelector } from 'react-redux'
@@ -37,7 +37,8 @@ const Game = () => {
 
   const started = useSelector((state) => state.Game.started)
   const isPlaying = useSelector((state) => state.Game.isPlaying)
-  const speed = 300
+  const speed = useSelector((state) => state.Game.speedInMilliseconds)
+  const [speedGuard, setSpeedGuard] = useState(true)
 
   useEffect(() => {
     if (started === true && isPlaying === true) {
@@ -49,6 +50,17 @@ const Game = () => {
       intervalRef.current = null
     }
   }, [started, isPlaying])
+
+  useEffect(() => {
+    if (speedGuard) {
+      setSpeedGuard(false)
+      return
+    }
+    clearInterval(intervalRef.current)
+    intervalRef.current = setInterval(() => {
+      advanceLife()
+    }, speed)
+  }, [speed])
 
   useEffectOnce(() => {
     generateGrid(30, 30)
