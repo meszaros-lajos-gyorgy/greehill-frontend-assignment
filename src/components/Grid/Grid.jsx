@@ -7,14 +7,17 @@ import s from './style.module.scss'
 const Grid = () => {
   const dispatch = useDispatch()
 
-  const grid = useSelector((state) => (state.Game.started ? state.Game.grid : state.Game.initialGrid))
+  const started = useSelector((state) => state.Game.started)
+  const grid = useSelector((state) => (started ? state.Game.grid : state.Game.initialGrid))
   const { width, height } = getGridSize(grid)
 
   const [isMouseDown, setIsMouseDown] = useState(false)
   const [mousePos, setMousePos] = useState({ x: null, y: null })
 
   const toggleCell = (x, y) => {
-    // TODO: ha már elindult a szimuláció, akkor már ne lehessen módosítani
+    if (started) {
+      return
+    }
     dispatch({
       type: 'Game.toggleCell',
       payload: {
