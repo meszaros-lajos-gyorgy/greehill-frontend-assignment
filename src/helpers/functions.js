@@ -26,7 +26,12 @@ export const countNeighbours = (x, y, grid) => {
 }
 
 export const getNextState = (x, y, grid) => {
-  const currentState = grid[y][x]
+  const neighbours = countNeighbours(x, y, grid)
+  const isAlive = grid[y][x] === 1
 
-  return currentState === 1 ? 0 : 1
+  if (isAlive) {
+    return neighbours === 2 || neighbours === 3 ? 1 : 0
+  } else {
+    return neighbours === 3 ? 1 : 0
+  }
 }

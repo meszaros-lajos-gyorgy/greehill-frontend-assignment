@@ -1,7 +1,7 @@
 const assert = require('assert')
 const { describe, it } = require('mocha')
 const { isFunction } = require('ramda-adjunct')
-const { createMatrixOfZeros, getGridSize, countNeighbours } = require('../../src/helpers/functions.js')
+const { createMatrixOfZeros, getGridSize, countNeighbours, getNextState } = require('../../src/helpers/functions.js')
 
 describe('createMatrixOfZeros', () => {
   it('létező függvény', () => {
@@ -26,7 +26,10 @@ describe('getGridSize', () => {
   it('létező függvény', () => {
     assert.ok(isFunction(getGridSize))
   })
-  // TODO: még több teszt ehhez
+  it('0 értékeket ad vissza, ha a tömb üres', () => {
+    assert.deepStrictEqual(getGridSize([]), { width: 0, height: 0 })
+  })
+  // TODO: még több teszt
 })
 
 describe('countNeighbours', () => {
@@ -39,14 +42,14 @@ describe('countNeighbours', () => {
       [0, 1, 0],
       [1, 1, 0]
     ]
-    assert.strictEqual(countNeighbours(1, 1, gridA), 3)
+    assert.strictEqual(countNeighbours(1, 1, gridA), 3, 'gridA-nál 3 szomszéd van')
 
     const gridB = [
       [0, 0, 1],
       [1, 0, 0],
       [1, 1, 1]
     ]
-    assert.strictEqual(countNeighbours(1, 1, gridB), 5)
+    assert.strictEqual(countNeighbours(1, 1, gridB), 5, 'gridB-nél 5 szomszéd van')
   })
   it('visszaadja az első oszlopon és soron kívüli mezők összegét a [2,2] kivételével egy 4x4-es mátrixban', () => {
     const grid = [
@@ -64,5 +67,57 @@ describe('countNeighbours', () => {
       [1, 1, 0]
     ]
     assert.strictEqual(countNeighbours(0, 0, grid), 1)
+  })
+})
+
+describe('getNextState', () => {
+  it('létező függvény', () => {
+    assert.ok(isFunction(getNextState))
+  })
+  it('ha az adott 1-et tartalmazó cella körül kevesebb, mint 2 szomszéd van, akkor 0-t ad vissza', () => {
+    const grid = [
+      [0, 0, 0],
+      [0, 1, 0],
+      [0, 0, 1]
+    ]
+    assert.strictEqual(getNextState(1, 1, grid), 0)
+  })
+  it('ha az adott 1-et tartalmazó cella körül 2, vagy 3 szomszéd van, akkor 1-el tér vissza', () => {
+    const grid = [
+      [0, 1, 0],
+      [0, 1, 1],
+      [0, 0, 1]
+    ]
+    assert.strictEqual(getNextState(1, 1, grid), 1)
+  })
+  it('ha az adott 1-et tartalmazó cella körül több, mint 3 szomszéd van, akkor 0-val tér vissza', () => {
+    const grid = [
+      [0, 1, 1],
+      [0, 1, 1],
+      [1, 1, 1]
+    ]
+    assert.strictEqual(getNextState(1, 1, grid), 0)
+  })
+  it('ha az adott 0-t tartalmazó cella körül pontosan 3 szomszédvan, akkor 1-el tér vissza', () => {
+    const gridA = [
+      [0, 1, 0],
+      [0, 0, 1],
+      [1, 0, 0]
+    ]
+    assert.strictEqual(getNextState(1, 1, gridA), 1, 'gridA-nál 3 szomszéd van -> 1')
+
+    const gridB = [
+      [0, 0, 0],
+      [0, 0, 1],
+      [1, 0, 0]
+    ]
+    assert.strictEqual(getNextState(1, 1, gridB), 0, 'gridB-nél 2 szomszéd van -> 0')
+
+    const gridC = [
+      [0, 1, 1],
+      [0, 0, 1],
+      [1, 0, 0]
+    ]
+    assert.strictEqual(getNextState(1, 1, gridC), 0, 'gridC-nél 4 szomszéd van -> 0')
   })
 })
